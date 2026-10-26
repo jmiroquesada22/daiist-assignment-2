@@ -1,0 +1,71 @@
+{
+  "costs_used": {
+    "base_rate": 0.1,
+    "cost_fn": 15.0,
+    "cost_fp": 2.0,
+    "cost_tp": 2.0,
+    "cost_tn": 0.0,
+    "review_seconds": 10,
+    "reviewer_cost_per_hour": 17.0,
+    "cases_per_day": 1200,
+    "reviewer_hours_per_day": 2
+  },
+  "costs_are_placeholders": false,
+  "test_images": 390,
+  "test_positive_images": 108,
+  "chosen_single_threshold": 0.2,
+  "chosen_band": {
+    "t_low": 0.02,
+    "t_high": 0.8
+  },
+  "alternatives": {
+    "do_nothing": {
+      "cost_per_1000": 1500.0,
+      "review_share": 0.0,
+      "frames_per_day": 0.0,
+      "review_hours_per_day": 0.0,
+      "reviewers_needed": 0.0
+    },
+    "person_checks_everything": {
+      "cost_per_1000": 247.22222222222223,
+      "review_share": 1.0,
+      "frames_per_day": 1200.0,
+      "review_hours_per_day": 3.3333333333333335,
+      "reviewers_needed": 1.6666666666666667
+    },
+    "model_alone": {
+      "t_low": 0.2,
+      "t_high": 0.2,
+      "tp": 0.9444444444444444,
+      "review_pos": 0.0,
+      "fn": 0.05555555555555555,
+      "fp": 0.04964539007092199,
+      "review_neg": 0.0,
+      "tn": 0.950354609929078,
+      "cost_per_1000": 361.58392434988184,
+      "review_share": 0.0,
+      "frames_per_day": 0.0,
+      "review_hours_per_day": 0.0,
+      "reviewers_needed": 0.0
+    },
+    "model_plus_review": {
+      "t_low": 0.02,
+      "t_high": 0.8,
+      "tp": 0.06481481481481481,
+      "review_pos": 0.9259259259259259,
+      "fn": 0.009259259259259259,
+      "fp": 0.0,
+      "review_neg": 0.1276595744680851,
+      "tn": 0.8723404255319149,
+      "cost_per_1000": 221.83499693546975,
+      "review_share": 0.2074862096138692,
+      "frames_per_day": 248.98345153664306,
+      "review_hours_per_day": 0.6916206987128973,
+      "reviewers_needed": 0.34581034935644867
+    }
+  },
+  "baselines_cheapest_cost_per_1000": {
+    "coco_zero_shot": 1454.0386130811664,
+    "predict_nothing": 1500.0
+  }
+}

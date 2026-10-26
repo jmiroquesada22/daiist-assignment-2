@@ -1,0 +1,27 @@
+{
+  "names": [
+    "no_safety_vest",
+    "safety_vest",
+    "background"
+  ],
+  "layout": "rows = predicted, columns = true",
+  "conf": 0.25,
+  "iou": 0.45,
+  "matrix": [
+    [
+      200,
+      19,
+      40
+    ],
+    [
+      5,
+      563,
+      89
+    ],
+    [
+      21,
+      80,
+      0
+    ]
+  ]
+}

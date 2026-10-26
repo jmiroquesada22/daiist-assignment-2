@@ -1,0 +1,78 @@
+{
+  "finetuned": {
+    "per_class": {
+      "no_safety_vest": {
+        "n_gt": 226,
+        "ap50": 0.8678695415705421,
+        "ap50_95": 0.46260812150097486,
+        "precision": 0.7683397683397684,
+        "recall": 0.8805309734513275,
+        "n_pred_at_conf": 259
+      },
+      "safety_vest": {
+        "n_gt": 662,
+        "ap50": 0.8902550032887473,
+        "ap50_95": 0.5975601608690853,
+        "precision": 0.8462709284627092,
+        "recall": 0.8398791540785498,
+        "n_pred_at_conf": 657
+      }
+    },
+    "map50": 0.8790622724296446,
+    "map50_95": 0.5300841411850301,
+    "ultralytics_val": {
+      "map50": 0.8882337447890962,
+      "map50_95": 0.5383933008583237
+    }
+  },
+  "coco_zero_shot": {
+    "per_class": {
+      "no_safety_vest": {
+        "n_gt": 226,
+        "ap50": 0.0151577113449303,
+        "ap50_95": 0.0020452373403836944,
+        "precision": 0.035037878787878785,
+        "recall": 0.16371681415929204,
+        "n_pred_at_conf": 1056
+      },
+      "safety_vest": {
+        "n_gt": 662,
+        "ap50": 0.05406298092753287,
+        "ap50_95": 0.013296718270612342,
+        "precision": 0.13162878787878787,
+        "recall": 0.20996978851963746,
+        "n_pred_at_conf": 1056
+      }
+    },
+    "map50": 0.03461034613623158,
+    "map50_95": 0.007670977805498018
+  },
+  "predict_nothing": {
+    "per_class": {
+      "no_safety_vest": {
+        "n_gt": 226,
+        "ap50": 0.0,
+        "ap50_95": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "n_pred_at_conf": 0
+      },
+      "safety_vest": {
+        "n_gt": 662,
+        "ap50": 0.0,
+        "ap50_95": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "n_pred_at_conf": 0
+      }
+    },
+    "map50": 0.0,
+    "map50_95": 0.0
+  },
+  "_notes": {
+    "positive_class": "no_safety_vest",
+    "precision_recall_at_conf": 0.25,
+    "iou_for_precision_recall": 0.5,
+    "coco_zero_shot": "COCO has no vest classes; every person box is scored as a candidate for each class."
+  }
+}
