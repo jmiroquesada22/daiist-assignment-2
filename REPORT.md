@@ -3,7 +3,7 @@
 - **Name**: Juan Miro-Quesada
 - **Student ID**: 19858
 - **Email**: jmiroquesada.ieu2022@student.ie.edu
-- **Group**: [BBADBA 5A]
+- **Group**: BBADBA 5A
 
 ## Business problem, and the cost of being wrong
 
@@ -38,20 +38,20 @@ Test share of positives: 108 of 390 test images (27.7%) contain a violation.
 Object size: median box area is 6.2% of the image for no_safety_vest and 5.6% for safety_vest. About 7.5% of boxes cover less than 1% of the image (distant workers).
 Does 27.7% look like production?
 
-Almost certainly not. A real site where more than a quarter of camera frames showed someone without a vest would be an extreme safety failure, and a labour inspector would likely stop the work. A plausible real share is much lower; you assumed 10% in your costs.
+Almost certainly not. A real site where more than a quarter of camera frames showed someone without a vest would be an extreme safety failure, and a labour inspector would likely stop the work. 
 
 Why the test set has so many: dataset builders collect images because they contain the thing to be detected, so violations are deliberately over-represented. That’s useful for training, since the model needs plenty of examples of the positive class, but it makes the test set unrepresentative of real frequency.
 
 Why it matters
 
-Precision depends on the base rate. At a lower real violation rate, most frames are clean, so the same model produces proportionally more false alarms among its alerts. Your measured no_safety_vest precision of 0.77 is therefore optimistic for a real site.
+Precision depends on the base rate. At a lower real violation rate, most frames are clean, so the same model produces proportionally more false alarms among its alerts. 
 Recall doesn’t depend on the base rate. The share of real violations caught is a property of how the model sees each violation, not of how common they are. Recall carries over better than precision.
 That’s why you re-weighted the costs to a 10% base rate instead of using the test set’s share. Without that, the cost of every option would be computed for a site that doesn’t exist.
 
 What you can’t conclude from these results
 
-How the model performs on your actual site’s cameras. If the images differ from fixed, high, wide-angle site footage (as you checked for the dataset question), real performance will likely be lower.
-The real false-alarm rate per day. It depends on the true base rate, which you assumed, not measured.
+How the model performs on your actual site’s cameras. If the images differ from fixed, high, wide-angle site footage, real performance will likely be lower.
+The real false-alarm rate per day.
 Precise per-class numbers. With only 108 positive test images, each image moves image-level recall by about 1 point, so treat 0.88 as “roughly 0.85–0.9”, not exact.
 That the chosen thresholds are optimal for real use. They’re the cheapest given your assumed costs and base rate. If those are wrong, the best thresholds move.
 Behaviour over time. Each test image is independent, but on a real camera the same worker appears in many consecutive frames, and the test set says nothing about that.
@@ -76,8 +76,8 @@ Cross-check: Ultralytics' own validator gives the finetuned model mAP50 0.888 an
 
 Precision and recall are at confidence 0.25 and IoU 0.5. The positive class is no_safety_vest.
 
-no_safety_vest (positive): 226 test boxes; AP50 0.868; AP50-95 [fill from dashboard]; precision 0.768; recall 0.881.
-safety_vest: 662 test boxes; AP50 0.890; AP50-95 [fill from dashboard]; precision 0.846; recall 0.840.
+no_safety_vest (positive): 226 test boxes; AP50 0.868; AP50-95 0.463; precision 0.768; recall 0.881.
+safety_vest: 662 test boxes; AP50 0.890; AP50-95 0.598; precision 0.846; recall 0.840.
 
 At this setting, about 27 of the 226 no-vest workers are missed, and about 60 of the roughly 260 no_safety_vest predictions are wrong.
 
@@ -103,8 +103,6 @@ Sweep. The threshold on each frame's highest no_safety_vest confidence was swept
 
 Cheapest single threshold (model alone): 0.20, at €361.58 per 1,000 frames.
 Cost curve with the chosen point marked: dashboard, "Thresholds & cost" tab.
-
-Sensitivity: [fill in from your re-runs, for example: "With cost_fn = €5 the thresholds become … and … ; with €50 … . Model + review stops beating a person checking everything when cost_fn drops below €…."]
 
 ## What a person still has to check
 
@@ -136,4 +134,3 @@ Training was only 8 epochs.
 Code: Claude helped with the code and the Colab training cells.
 Cost figures: Claude researched reference figures (Spanish LISOS fines, EU per-case injury costs, technician salaries) and suggested starting values for every figure in costs.json. 
 This report: Claude filled in the numbers and tables from my pipeline's output.
-
