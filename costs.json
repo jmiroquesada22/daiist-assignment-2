@@ -1,0 +1,31 @@
+{
+  "_status": "PLACEHOLDER - every number below is a stand-in so the code runs. Replace each with your own figure and justify it in REPORT.md, then delete this line.",
+  "_unit": "One case = one camera frame. Positive = the frame shows at least one worker without a safety vest.",
+
+  "base_rate": 0.1,
+  "_base_rate": "Share of frames in production that really contain a worker without a vest (0-1).",
+
+  "cost_fn": 1.0,
+  "_cost_fn": "EUR when a violation passes unnoticed (missed).",
+
+  "cost_fp": 1.0,
+  "_cost_fp": "EUR when an alert fires on a frame with no violation (false alarm).",
+
+  "cost_tp": 0.0,
+  "_cost_tp": "EUR spent acting on a real violation that was caught (0 if you treat it as free).",
+
+  "cost_tn": 0.0,
+  "_cost_tn": "EUR for a clean frame correctly passed (usually 0).",
+
+  "review_seconds": 10,
+  "_review_seconds": "Seconds a person needs to check one frame.",
+
+  "reviewer_cost_per_hour": 20.0,
+  "_reviewer_cost_per_hour": "EUR per hour for the person reviewing frames.",
+
+  "cases_per_day": 1000,
+  "_cases_per_day": "Frames the system judges per day.",
+
+  "reviewer_hours_per_day": 8,
+  "_reviewer_hours_per_day": "Hours one reviewer can spend reviewing per day."
+}
